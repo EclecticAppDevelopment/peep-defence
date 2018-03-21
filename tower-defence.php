@@ -7,7 +7,7 @@ $this_type = "website";
 $this_locale = "en_us";
 $this_url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI'];
 
-$partials_folder = '/home/u545245070/public_html/templates/partials/';
+$partials_folder = '../templates/partials/';
 
 /* STRUCTURE */
 
