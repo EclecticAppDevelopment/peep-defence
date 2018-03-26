@@ -78,10 +78,10 @@ $include_folder_files = [
 	[ "./tower-defence", "tower-defence" ],
 
 	// Generic libraries required for this game
-	[ "../libraries/javascript", "window" ],
-	[ "../libraries/javascript", "canvas_events" ],
-	[ "../libraries/javascript", "pathfinding-browser" ],
-	[ "../libraries/javascript", "grid" ]
+	[ ".../libraries/javascript", "window" ],
+	[ ".../libraries/javascript", "canvas_events" ],
+	[ ".../libraries/javascript", "pathfinding-browser" ],
+	[ ".../libraries/javascript", "grid" ]
 	
 ];
 
