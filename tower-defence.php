@@ -26,7 +26,18 @@ $partials_folder = '../templates/partials/';
 //include $partials_folder . '_meta.php';
 //include $partials_folder . '_social.php';
 echo "<!DOCTYPE html><html>
-	<!-- VERSION 1.1 on 26-03-2018 -->";
+	<!-- VERSION 1.1 on 26-03-2018 -->
+	<head>
+		<link rel='stylesheet' href='/css/w3.css'>
+		<link rel='stylesheet' href='../css/w3-theme-deep-purple.css'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<script defer src='../css/fontawesome-all.min.js'></script>
+		<style>
+			html,body,h1,h2,h3,h4,h5 {font-family: 'Open Sans', sans-serif}
+		</style>
+
+	
+	";
 	
 echo "<style type='text/css'>
 
