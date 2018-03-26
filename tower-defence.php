@@ -23,9 +23,8 @@ $partials_folder = '../templates/partials/';
 
 /* THESE DON'T WORK ON GIT DEPLOY */
 //include $partials_folder . '_declare.php';
-include $partials_folder . '_meta.php';
-include $partials_folder . '_social.php';
-
+//include $partials_folder . '_meta.php';
+//include $partials_folder . '_social.php';
 echo "<!DOCTYPE html><html>
 	<!-- VERSION 1.1 on 26-03-2018 -->";
 	
@@ -83,10 +82,10 @@ $include_folder_files = [
 	[ "./tower-defence", "tower-defence" ],
 
 	// Generic libraries required for this game
-	[ ".../libraries/javascript", "window" ],
-	[ ".../libraries/javascript", "canvas_events" ],
-	[ ".../libraries/javascript", "pathfinding-browser" ],
-	[ ".../libraries/javascript", "grid" ]
+	[ "/libraries/javascript", "window" ],
+	[ "/libraries/javascript", "canvas_events" ],
+	[ "/libraries/javascript", "pathfinding-browser" ],
+	[ "/libraries/javascript", "grid" ]
 	
 ];
 
