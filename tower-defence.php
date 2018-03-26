@@ -21,10 +21,14 @@ $partials_folder = '../templates/partials/';
 	// echo MAIN and CONTENT
 // _footer.php		(footer)
 
-include $partials_folder . '_declare.php';
+/* THESE DON'T WORK ON GIT DEPLOY */
+//include $partials_folder . '_declare.php';
 include $partials_folder . '_meta.php';
 include $partials_folder . '_social.php';
 
+echo "<!DOCTYPE html><html>
+	<!-- VERSION 1.1 on 26-03-2018 -->";
+	
 echo "<style type='text/css'>
 
 	#gui_health_container {
@@ -51,6 +55,7 @@ echo "<style type='text/css'>
 	#main-modal {
 		z-index: 1000;
 	}
+	
 </style>";
 
 include $partials_folder . '_styles.php';
