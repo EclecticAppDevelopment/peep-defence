@@ -1,0 +1,66 @@
+	#canvasWrapper{
+		position: relative;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	
+	#bgCanvas {
+		z-index: 2;
+		position: absolute !important;
+		padding: 0;
+		margin: 0;
+	}
+	
+	#canvas{
+		z-index: 5 !important;
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	
+	#gui_health_container {
+		position: relative;
+		height: 25px;
+		z-index: 0;
+	}
+	
+	#gui_health_text {
+		position: relative;
+		width: 100%;
+		height: 25px;
+		z-index: 10;
+		text-align: center;
+	}
+	
+	#gui_health {
+		position: absolute;
+		top: 0px;
+		z-index: 1;
+		height: 23px;
+	}
+	
+	#main-modal {
+		z-index: 1000;
+	}
+	
+	.fading {
+		animation-name: fadeIn;
+		animation-duration: 2s;
+	}
+#tooltipV, #tooltipH {
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+}
+
+@keyframes fadeIn{
+	from: {opacity: 0; }
+	50%: {opacity: 0.5; }
+	to: {opacity: 1; }
+}
