@@ -23,10 +23,10 @@ function plotPath(map,startP,endP){
 }
 
 function convertPathPoint(index){
-	var row = current.path[index][0];
-	var col = current.path[index][1];
-	var width = current.width / current.columns;
-	var height = current.height / current.rows;
+	var row = level.path[index][0];
+	var col = level.path[index][1];
+	var width = level.dimensions.width / level.dimensions.columns;
+	var height = level.dimensions.height / level.dimensions.rows;
 	xpos = width * row + (width / 2);
 	ypos = height * col + (height / 2);
 	return this.x = xpos, this.y = ypos;
@@ -39,19 +39,20 @@ function draw_path(ctx,map,path){
 	var x = path[0][0];
 	var y = path[0][1];
 
-	var xpos = convertColToX(ctx, y, current.columns, true );
-	var ypos = convertRowToY(ctx, x, current.rows, true );
+	var xpos = convertColToX(ctx, y, level.dimensions.columns, true );
+	var ypos = convertRowToY(ctx, x, level.dimensions.rows, true );
 	
 	ctx.moveTo(xpos,ypos);
 
 	for (var i = 1; i < path.length; i++){
 		x = path[i][0];
 		y = path[i][1];
-		xpos = convertColToX(ctx, y, current.columns, true );
-		ypos = convertRowToY(ctx, x, current.rows, true );
+		xpos = convertColToX(ctx, y, level.dimensions.columns, true );
+		ypos = convertRowToY(ctx, x, level.dimensions.rows, true );
 		ctx.lineTo(xpos,ypos);
 		ctx.moveTo(xpos,ypos);
 		ctx.stroke();
+		//ctx.restore();
 	}
 }
 
@@ -63,11 +64,12 @@ function draw_styled_path(ctx,map,path,style){
 	var startX = path[0][0];
 	var startY = path[0][1];
 	
-	var startXPos = convertColToX(ctx, startY, current.columns, true );
-	var startYPos = convertRowToY(ctx, startX, current.rows, true );
+	var startXPos = convertColToX(ctx, startY, level.dimensions.columns, true );
+	var startYPos = convertRowToY(ctx, startX, level.dimensions.rows, true );
 	//var xpos = convertColToX(ctx, y, current.columns, true );
 	//var ypos = convertRowToY(ctx, x, current.rows, true );
 	
+	ctx.save();
 	ctx.beginPath();
 	ctx.moveTo(startXPos,startYPos);
 	
@@ -78,11 +80,11 @@ function draw_styled_path(ctx,map,path,style){
 			for (var point = 1; point < path.length; point++){
 				nextX = path[point][0];
 				nextY = path[point][1];
-				nextXPos = convertColToX(ctx, nextY, current.columns, true );
-				nextYPos = convertRowToY(ctx, nextX, current.rows, true );
+				nextXPos = convertColToX(ctx, nextY, level.dimensions.columns, true );
+				nextYPos = convertRowToY(ctx, nextX, level.dimensions.rows, true );
 				ctx.lineTo(nextXPos,nextYPos);
 				ctx.moveTo(nextXPos,nextYPos);
-				ctx.stroke();
+				
 			}
 			break;
 			
@@ -92,65 +94,19 @@ function draw_styled_path(ctx,map,path,style){
 			for (var point = 1; point < path.length; point++){
 				nextX = path[point][0];
 				nextY = path[point][1];
-				nextXPos = convertColToX(ctx, nextY, current.columns, true );
-				nextYPos = convertRowToY(ctx, nextX, current.rows, true );
+				nextXPos = convertColToX(ctx, nextY, level.dimensions.columns, true );
+				nextYPos = convertRowToY(ctx, nextX, level.dimensions.rows, true );
 				ctx.lineTo(nextXPos,nextYPos);
 				ctx.moveTo(nextXPos,nextYPos);
-				ctx.stroke();
-				
-				
-				/*
-				// Line from (start point + 1/4) to (end point - 1/4)
-				nextX = path[point][0];
-				nextY = path[point][1];
-				
-				if (Math.abs(nextX - startX) == 1){
-					// Horizontal dash
-					console.log('H DASH');
-					nextXPos = convertColToX(ctx, nextY, current.columns, true );
-					nextYPos = convertRowToY(ctx, nextX, current.rows, true );
-					midXPos = startXPos + ( (nextXPos - startXPos) / 4);
-					midYPos = nextYPos;
-					
-					ctx.moveTo(midXPos,midYPos);
-					
-					midXPos = startXPos + ( 3 * (nextXPos - startXPos) / 4);
-					midYPos = nextYPos;
-					
-					ctx.lineTo(midXPos,midYPos);
-					ctx.moveTo(nextXPos,nextYPos);
-					ctx.stroke();
-
-					startXPos = nextXPos;
-					startYPos = nextYPos;
-					
-				}else{
-					// Vertical dash
-					console.log('V DASH');
-					nextXPos = convertColToX(ctx, nextY, current.columns, true );
-					nextYPos = convertRowToY(ctx, nextX, current.rows, true );
-					midYPos = startYPos + ( (nextYPos - startYPos) / 4);
-					midXPos = nextXPos;
-					
-					ctx.moveTo(midXPos,midYPos);
-					
-					midYPos = startYPos + ( 3 * (nextYPos - startYPos) / 4);
-					midXPos = nextXPos;
-					
-					ctx.lineTo(midXPos,midYPos);
-					ctx.moveTo(nextXPos,nextYPos);
-					ctx.stroke();
-					
-					startXPos = nextYPos;
-					startYPos = nextXPos;
-				}
-				*/
 				
 			}
 			break;
-			
+
 	}
 	
-	ctx.closePath();
+		ctx.stroke();
+		ctx.closePath();
+	//	ctx.setLineDash([]);
 	ctx.restore();
 }
+
