@@ -1,0 +1,20 @@
+{
+	"state": 0,
+	"maxHP": 100,
+	"cash": 500,
+	"context_strokeStyle": "#000",
+	"context_lineWidth": 1,	
+	"canvas_padding": 5,
+	"elapsedFactor": 10,
+	"cashFactor": 2,
+	"damageFactor": 10,
+	"enemyHealthFactor": 4,
+	"enemySpeedFactor": 3.5,
+	"enemyShieldFactor": 10,
+	"fireRateFactor": 0.1,	
+	"maxMoveDist": 5,
+	"game_level": 0,
+	"wave": 0,
+	"waveCompleteBonusFactor": 10,
+	"difficulty": 0
+}
